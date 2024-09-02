@@ -363,16 +363,19 @@ button, input, optgroup, select, textarea {
     // Function to send a message to the backend
     function sendMessage() {
         const inputField = document.getElementById('chat-input');
-        const message = inputField.value;
+        const userMessage = inputField.value;
 
-        if (message.trim() === '') return; // Do not send empty messages
+        if (userMessage.trim() === '') return; // Do not send empty messages
 
-        // Display the message on the chat window as a reverse message (from user)
+        // Append the Swahili reply prompt to the user's message
+        const messageToSend = `${userMessage} (reply only in Swahili)`;
+
+        // Display the user's message on the chat window as a reverse message
         const chatContent = document.getElementById('chat-content');
         chatContent.innerHTML += `
             <div class="media media-chat media-chat-reverse">
                 <div class="media-body">
-                    <p>${message}</p>
+                    <p>${userMessage}</p>
                     <p class="meta"><time datetime="now">${new Date().toLocaleTimeString()}</time></p>
                 </div>
             </div>
@@ -385,7 +388,7 @@ button, input, optgroup, select, textarea {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ message: message })
+            body: JSON.stringify({ message: messageToSend })
         })
         .then(response => response.json())
         .then(data => {
@@ -399,6 +402,8 @@ button, input, optgroup, select, textarea {
                     </div>
                 </div>
             `;
+            // Scroll to the bottom of the chat container to show the latest message
+            chatContent.scrollTop = chatContent.scrollHeight;
         })
         .catch(error => {
             console.error('Error:', error);
