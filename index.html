@@ -330,24 +330,39 @@ button, input, optgroup, select, textarea {
 }
 /* Responsive Adjustments */
         @media (max-width: 576px) {
-            .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .ps-container {
-                height: 300px !important; /* Adjust for smaller screens */
-            }
-            .publisher {
-                padding: 8px 10px;
-            }
-            .media-chat {
-                padding-right: 40px;
-            }
-            .media-chat .media-body p {
-                padding: 4px 6px;
-                font-size: 14px; /* Smaller font for smaller screens */
-            }
-        }    </style>
+    /* Adjust the padding for smaller screens */
+    .padding {
+        padding: 1rem !important; /* Reduced padding on smaller screens */
+    }
+
+    /* Remove side padding from the row container */
+    .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Shorten the input field on smaller screens */
+    .publisher-input {
+        flex-grow: 1;
+        max-width: 70%; /* Shorten the input field to 70% of its container */
+    }
+
+    /* Adjust the button sizes and alignment for smaller screens */
+    .publisher-btn {
+        padding: 0.5rem; /* Decrease padding for smaller buttons */
+    }
+
+    /* Ensure the chat card fits within the screen */
+    .col-md-6 {
+        max-width: 100%; /* Make sure the chat card takes full width on mobile */
+    }
+
+    /* Align the send button and other icons properly */
+    .publisher {
+        flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+        justify-content: space-between; /* Space out items evenly */
+    }
+}   </style>
 </head>
 <body>
 
