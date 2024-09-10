@@ -2,6 +2,7 @@
 Helpful A.I. that responds to chats
 --
 #### 🐼 Panda is our custom interface for interacting with an A.I. assistant.
+Accessible here: [https://paintedpotato.github.io/panda/](https://paintedpotato.github.io/panda/)
 
 ## FAQ <br>
 **1. Why Panda?**
